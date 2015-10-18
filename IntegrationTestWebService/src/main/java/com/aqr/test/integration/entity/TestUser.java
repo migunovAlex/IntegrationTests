@@ -5,14 +5,20 @@ package com.aqr.test.integration.entity;
  */
 public class TestUser {
 
+    private final long id;
     private final String userName;
     private final String userLastName;
     private final String userEmail;
 
-    public TestUser(String userName, String userLastName, String userEmail) {
+    public TestUser(long id, String userName, String userLastName, String userEmail) {
+        this.id = id;
         this.userName = userName;
         this.userLastName = userLastName;
         this.userEmail = userEmail;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getUserName() {
@@ -34,6 +40,7 @@ public class TestUser {
 
         TestUser testUser = (TestUser) o;
 
+        if (id != testUser.id) return false;
         if (userName != null ? !userName.equals(testUser.userName) : testUser.userName != null) return false;
         if (userLastName != null ? !userLastName.equals(testUser.userLastName) : testUser.userLastName != null)
             return false;
@@ -43,7 +50,8 @@ public class TestUser {
 
     @Override
     public int hashCode() {
-        int result = userName != null ? userName.hashCode() : 0;
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (userName != null ? userName.hashCode() : 0);
         result = 31 * result + (userLastName != null ? userLastName.hashCode() : 0);
         result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
         return result;
@@ -52,7 +60,8 @@ public class TestUser {
     @Override
     public String toString() {
         return "TestUser{" +
-                "userName='" + userName + '\'' +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
                 ", userLastName='" + userLastName + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 '}';

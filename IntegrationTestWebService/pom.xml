@@ -11,7 +11,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.3</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
 
@@ -34,9 +34,29 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.2.2.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.36</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.9.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.190</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -70,7 +90,7 @@
 
 
             <!-- Start Tomcat before integration tests on the -->
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
@@ -112,7 +132,7 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
+-->
 
             <!-- Run the integration tests annotated with @Category(IntegrationTest.class) -->
             <plugin>
@@ -128,7 +148,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <groups>com.aqr.IntegrationTest</groups>
+                    <groups>com.aqr.integration.IntegrationSuiteTest</groups>
                     <failIfNoTests>false</failIfNoTests>
                     <junitArtifactName>junit:junit-dep</junitArtifactName>
                     <systemPropertyVariables>
