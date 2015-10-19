@@ -1,0 +1,5 @@
+com\aqr\test\integration\persistence\IntegrationTestDAOAwareOfDB$1.class
+com\aqr\test\integration\persistence\IntegrationTestDAOAwareOfDB$UserExtractor.class
+com\aqr\test\integration\persistence\IntegrationTestDAO.class
+com\aqr\test\integration\entity\TestUser.class
+com\aqr\test\integration\persistence\IntegrationTestDAOAwareOfDB.class
